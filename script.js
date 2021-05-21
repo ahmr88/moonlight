@@ -45,7 +45,13 @@ const start_microphone = (stream) => {
   gain_node = audioContext.createGain();
   gain_node.connect(audioContext.destination);
 
-  microphone_stream = audioContext.createMediaStreamSource(stream);
+  // microphone_stream = audioContext.createMediaStreamSource(stream);
+  const audioEle = new Audio();
+  audioEle.src = './Beethoven - Moonlight Sonata (FULL)-4Tr0otuiQuU.mp3'
+  audioEle.autoplay = true;
+  audioEle.preload = 'auto';
+
+  microphone_stream = audioContext.createMediaElementSource(audioEle);
   microphone_stream.connect(gain_node);
 
   // --- enable volume control for output speakers
@@ -97,8 +103,12 @@ const test = () => {
    return [curAvg, ind]
  } , [0,0])
 
+  const brightness = avg
+  const percent = 100 * brightness / 255
+
   const image = document.querySelector("img")
-  image.style.filter = `brightness(${(avg / 255) * 100}%)`
+  image.style.filter = `brightness(${percent}%)`
+  // image.style.filter = `hue-rotate(${3.14 * freq / 40}rad)`
 }
 
 test()
