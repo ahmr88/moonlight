@@ -1,0 +1,12 @@
+As a user, I want to be able to download the app from either Apple Store or Google Play Store
+As a user, I want to be prompted to input my email, name and phone number on my first donation
+As a user, I want to be able to donate sadaqa to the sadaqa fund
+As a user, I want to be able to make a general donation spent at the disgretion of the organization
+As a user, I want to be make donations through Apple pay (on iOS), Google Pay or by bank card.
+As a business owner, I want to be able to manage (create, edit, remove, update) campaigns, modify their ordering, and have the ability to hide existing campaigns from users.  
+As a user, I want to be able to make donations to any of the campaigns listed on the campaign page
+s a business owner, I want to be able to manage (view, edit, delete) users and their details.
+As a user, I want to be able to save a preferred payment method to my device, and have further donations default to that payment method
+As a user, I want my first payment method to be automatically saved as my preferred payment method on my device
+As a user, without having signed up, I want to be able to view a history of donations made using my device, specifying: amount donated, campaign/fund name, date donated and a donation identifier.
+As a business owner, I want to be able to change app pages' background image
