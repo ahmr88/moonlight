@@ -90,21 +90,22 @@ const test = () => {
 
  const delta = 20
 
- const [avg, freq] = byte_data.reduce(([curAvg, ind], cur, i) => {
-   if (i - delta < 0) return [curAvg, ind]
+ // const [avg, freq] = byte_data.reduce(([curAvg, ind], cur, i) => {
+ //   if (i - delta < 0) return [curAvg, ind]
 
-   const sum = byte_data.slice(i - delta, i + delta).reduce((acc, cur) => acc + cur, 0)
+ //   const sum = byte_data.slice(i - delta, i + delta).reduce((acc, cur) => acc + cur, 0)
     
-   const val = sum / (delta * 2)
+ //   const val = sum / (delta * 2)
 
-   if (val > curAvg) {
-     return [val, i]
-   }
-   return [curAvg, ind]
- } , [0,0])
+ //   if (val > curAvg) {
+ //     return [val, i]
+ //   }
+ //   return [curAvg, ind]
+ // } , [0,0])
+  const sum = byte_data.reduce((acc, cur, i) => acc + (((i/60)**(1.5) + 10) * cur), 0)
 
-  const brightness = avg
-  const percent = 100 * brightness / 255
+  const total = buffer_length * 255
+  const percent = 100 * (sum / total) + 25
 
   const image = document.querySelector("img")
   image.style.filter = `brightness(${percent}%)`
