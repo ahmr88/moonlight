@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- CSS only -->
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      overflow: hidden; /* Hide scrollbars */
+    }
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+    .image-container {
+      width: 100%;
+    }
+
+    .d-none {
+      display: none;
+    }
+
+    .carousel-item {
+      transition-duration: 3s;
+    }
+  </style>
+  <body>
+    <div class="controls">
+      <button class="sender">Sender</button>
+      <button class="receiver">Receiver</button>
+    </div>
+
+    <!-- <div id="myCarousel" class="carousel slide carousel-fade"> -->
+    <!--   <div class="carousel-inner"> -->
+    <!--     <div class="carousel-item active"> -->
+    <!--       <img src="./moons/moon.jpg" class="d-block w-100" alt="..." /> -->
+    <!--     </div> -->
+    <!--   </div> -->
+    <!-- </div> -->
+
+    <div class="img-container">
+      <img src="./moons/moon2.jpg" />
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+
+      // const imageSrcs = ["moon2.jpg"];
+      // const inner = document.querySelector(".carousel-inner");
+      // imageSrcs.forEach((imageSrc) => {
+      //   inner.innerHTML += `
+      //   <div class="carousel-item">
+      //     <img src="./moons/${imageSrc}" class="d-block w-100" alt="...">
+      //   </div>
+      //   `;
+      // });
+    </script>
+    <script src="script2.js"></script>
+  </body>
+</html>

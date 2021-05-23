@@ -1,11 +1,29 @@
-import axios from "axios";
-import post from './clickup.js'
-import list from './ipfs.js'
-import fs from "fs"
+import express from 'express'
+import http from 'http'
+import { Server } from 'socket.io'
 
-const out = list({
-  url: 'http://127.0.0.1:5001/api/v0' 
-})
+const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
 
-// out('QmdTCMG4ZasSbULH5RWFhaTY8J8FUYZWbPCd7sWUMqx2aT').then(console.log)
-out('QmakQDDH53tQkpntaZW7US8DYuFjUse3ipyQfKMNcbzKFD').then(console.log)
+app.use('/', express.static('static'))
+
+app.get('/', (req, res) => {
+  res.send('<h1>Hello world</h1>');
+});
+
+io.on('connection', (socket) => {
+  socket.on('sender', (e) => {
+    console.log('note', e.toString())
+    io.emit('midi', e)
+  })
+
+  socket.on('midi loaded', (e) => {
+    console.log('midi')
+    io.emit('midi loaded', e)
+  })
+});
+
+server.listen(3000, () => {
+  console.log('listening on *:3000');
+});
